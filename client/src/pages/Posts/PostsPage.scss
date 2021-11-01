@@ -5,4 +5,6 @@
     color: $font-color;
     min-height: 100vh;
     padding: 2rem 8rem;
+    display: flex;
+    flex-direction: column-reverse;
 }

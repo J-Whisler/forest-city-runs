@@ -13,8 +13,11 @@ const CreatePostPage = () => {
 
   const validationSchema = Yup.object().shape({
     title: Yup.string().max(250).required("You must input a Title!"),
-    postText: Yup.string().required(),
-    username: Yup.string().min(3).max(15).required(),
+    postText: Yup.string().required("You must enter text for your post!"),
+    username: Yup.string()
+      .min(3)
+      .max(15)
+      .required("You must enter a username for your post!"),
   });
 
   const onSubmit = (data) => {
