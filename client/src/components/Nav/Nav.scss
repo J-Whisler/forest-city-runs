@@ -1,0 +1,53 @@
+@import "../../utilites/variables.scss";
+
+.nav {
+    border-bottom: 2px solid $secondary-color;
+    padding: 1.5rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background: $primary-color;
+    color: $secondary-color;
+    .nav__logo {
+        font-family: $accent-font;
+        font-size: 2rem;
+        letter-spacing: 0.2rem;
+        border: 2px solid $secondary-color;
+        padding: 0.5rem 1rem;
+        border-radius: 0.2rem;
+        cursor: pointer;
+        .nav__logoLink {
+            text-decoration: none;
+            color: $secondary-color;
+        }
+    }
+    .nav__links {
+        display: flex;
+        width: 38rem;
+        justify-content: space-evenly;
+        .nav__linksLink {
+            text-decoration: none;
+            color: $secondary-color;
+            font-family: $main-font;
+            font-size: 1.5rem;
+            letter-spacing: 0.1rem;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .nav__social {
+        width: 10rem;
+        display: flex;
+        justify-content: space-around;
+        i {
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}

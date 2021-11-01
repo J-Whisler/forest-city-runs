@@ -1,0 +1,8 @@
+@import "../../utilites/variables.scss";
+
+.postsPage {
+    background: $primary-color;
+    color: $font-color;
+    min-height: 100vh;
+    padding: 2rem 8rem;
+}

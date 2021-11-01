@@ -1,0 +1,45 @@
+@import "../../utilites/variables.scss";
+
+.postCard {
+    border: 2px solid $secondary-color;
+    border-radius: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    .postCard__user {
+        display: flex;
+        align-items: center;
+        p {
+           border: 2px solid $secondary-color;
+           border-radius: 50%;
+           padding: 0.1rem 1rem;
+           font-family: $accent-font;
+           font-size: 2rem;
+           background-color: rgb(9, 29, 4);
+           color: $secondary-color; 
+           box-shadow: 0px 0px 150px $secondary-color;
+        }
+        h6 {
+            font-family: $main-font;
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+            opacity: 0.3;
+            text-shadow: 0px 0px 10px $primary-color;
+        }
+    }
+    .postCard__title {
+        margin-top: 0.5rem;
+        font-family: $accent-font;
+        letter-spacing: 0.05rem;
+        font-size: 1.4rem;
+        text-decoration: underline;
+    }
+
+    .postCard__text {
+        margin-top: 0.3rem;
+        font-family: $main-font;
+        line-height: 1.5;
+    }
+
+}

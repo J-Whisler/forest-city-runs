@@ -1,0 +1,45 @@
+@import "../../utilites/variables.scss";
+
+.createPostPage {
+    background: $primary-color;
+    min-height: 100vh;
+    padding: 5rem 25rem;
+    .createPostPage__formContainer {
+        border: 2px solid $secondary-color;
+        border-radius: 0.2rem;
+        padding: 1rem 2rem;
+        display: flex;
+        flex-direction: column;
+        label {
+            color: $secondary-color;
+            font-family: $accent-font;
+            font-size: 1.5rem;
+            letter-spacing: 0.1rem;
+            margin-bottom: 0.2rem;
+        }
+        #createPostPage__formInput {
+            padding: 0.2rem 0.5rem;
+            font-size: 1.1rem;
+            font-family: $main-font;
+            margin-bottom: 0.5rem;
+        }
+        button {
+            // margin-top: 1rem;
+            width: 30%;
+            margin: 1rem auto 0 auto;
+            outline: none;
+            border: none;
+            background: $secondary-color;
+            padding: 0.3rem 0;
+            border-radius: 0.2rem;
+            font-family: $accent-font;
+            font-size: 1.7rem;
+            letter-spacing: 0.1rem;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+}
