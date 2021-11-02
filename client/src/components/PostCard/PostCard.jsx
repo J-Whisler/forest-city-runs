@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "./PostCard.scss";
 
 const PostCard = ({ post }) => {
   const [postDate, setPostDate] = useState(``);
+  let history = useHistory();
 
   // Getting and formatting the post date
   const postDateFromSql = post.createdAt;
@@ -15,7 +17,12 @@ const PostCard = ({ post }) => {
   }, [getPostMonth, getPostDay, getPostYear]);
 
   return (
-    <div className="postCard">
+    <div
+      className="postCard"
+      onClick={() => {
+        history.push(`/singlepost/${post.id}`);
+      }}
+    >
       <div className="postCard__user">
         <p>{post.username.substring(0, 1)}</p>
         <h6>@{post.username}</h6>

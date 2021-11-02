@@ -4,6 +4,7 @@ import Nav from './components/Nav/Nav';
 import HomePage from './pages/Home/HomePage';
 import CreatePostPage from './pages/CreatePost/CreatePostPage';
 import PostsPage from './pages/Posts/PostsPage';
+import SinglePostPage from './pages/SinglePost/SinglePostPage';
 
 function App() {
   return (
@@ -11,9 +12,10 @@ function App() {
       <div className="App">
         <Nav />
         <Switch>
-          <Route path="/" exact component={HomePage}></Route>
-          <Route path="/createpost" component={CreatePostPage}></Route>
-          <Route path="/posts" component={PostsPage}></Route>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/createpost" component={CreatePostPage} />
+          <Route path="/posts" component={PostsPage} />
+          <Route path="/singlePost/:id" component={SinglePostPage} />
         </Switch>
       </div>
     </Router>

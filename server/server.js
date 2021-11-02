@@ -6,7 +6,9 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
-const db = require("./models");
+const db = require("./models", {
+    dialect: "mysql"
+});
 
 // Routers
 const PostRouter = require("./routes/Posts")
