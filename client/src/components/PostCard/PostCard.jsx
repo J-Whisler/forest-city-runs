@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./PostCard.scss";
 
 const PostCard = ({ post }) => {
+  const [postDate, setPostDate] = useState(``);
+
+  // Getting and formatting the post date
+  const postDateFromSql = post.createdAt;
+  const splitPostDateFromSql = postDateFromSql.split(/[- :]/);
+  const getPostMonth = splitPostDateFromSql[1];
+  const getPostDay = splitPostDateFromSql[2].substring(0, 2);
+  const getPostYear = splitPostDateFromSql[0];
+  useEffect(() => {
+    setPostDate(`${getPostMonth}/${getPostDay}/${getPostYear}`);
+  }, [getPostMonth, getPostDay, getPostYear]);
+
   return (
     <div className="postCard">
       <div className="postCard__user">
@@ -13,6 +25,7 @@ const PostCard = ({ post }) => {
       </div>
       <div className="postCard__text">
         <p>{post.postText}</p>
+        <p className="postCard__textPostDate">{postDate}</p>
       </div>
     </div>
   );

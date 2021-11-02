@@ -15,10 +15,10 @@ const Nav = () => {
           Home
         </Link>
         <Link to="/posts" className="nav__linksLink">
-          See All Posts
+          All Posts
         </Link>
         <Link to="/createpost" className="nav__linksLink">
-          Create a Post
+          Create Post
         </Link>
       </div>
       <div className="nav__social">

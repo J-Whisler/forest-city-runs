@@ -5,6 +5,7 @@ import PostCard from "../../components/PostCard/PostCard";
 
 const PostsPage = () => {
   const [listOfPosts, setListOfPosts] = useState([]);
+  const [filterOptions, setFilterOptions] = useState(true);
 
   useEffect(() => {
     axios.get("http://localhost:3001/posts").then((response) => {
@@ -14,9 +15,34 @@ const PostsPage = () => {
 
   return (
     <div className="postsPage">
-      {listOfPosts.map((post, key) => {
-        return <PostCard post={post} key={key} />;
-      })}
+      <div className="postsPage__dropdown">
+        <p>Filter By: </p>
+        <div className="postsPage__dropdownFilterOptions">
+          <h5
+            onClick={() => setFilterOptions(true)}
+            className={filterOptions ? "activeFilter" : ""}
+          >
+            Newest
+          </h5>
+          <h5
+            onClick={() => setFilterOptions(false)}
+            className={!filterOptions ? "activeFilter" : ""}
+          >
+            Oldest
+          </h5>
+        </div>
+      </div>
+      <div
+        className={
+          filterOptions
+            ? "postsPage__postsList newest"
+            : "postsPage__postsList oldest"
+        }
+      >
+        {listOfPosts.map((post, key) => {
+          return <PostCard post={post} key={key} />;
+        })}
+      </div>
     </div>
   );
 };
