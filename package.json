@@ -2,7 +2,7 @@
   "name": "forest-city-runs",
   "version": "6.11.3",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js"
