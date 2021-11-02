@@ -16,9 +16,6 @@
   "bugs": {
     "url": "https://github.com/J-Whisler/forest-city-runs/issues"
   },
-  "homepage": "https://github.com/J-Whisler/forest-city-runs#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1"
-  }
+  "homepage": "https://github.com/J-Whisler/forest-city-runs#readme"
+
 }
