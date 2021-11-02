@@ -1,1 +1,1 @@
-web: /client/src/App.js
+web: client/src/App.js
