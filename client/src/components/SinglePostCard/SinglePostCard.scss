@@ -1,0 +1,12 @@
+@import "../../utilites/variables.scss";
+
+.singlePostCard {
+    border: 2px solid $secondary-color;
+    border-radius: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}

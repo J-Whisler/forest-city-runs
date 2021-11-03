@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import "./PostCard.scss";
+import "./SinglePostCard.scss";
 
-const PostCard = ({ post }) => {
-  const [postDate, setPostDate] = useState(``);
-  let history = useHistory();
+const SinglePostCard = ({ post }) => {
+  const [selectedPostDate, setSelectedPostDate] = useState(``);
+  //   let history = useHistory();
 
   // Getting and formatting the post date
   const postDateFromSql = post.createdAt;
@@ -14,29 +13,24 @@ const PostCard = ({ post }) => {
   const getPostYear = splitPostDateFromSql[0];
 
   useEffect(() => {
-    setPostDate(`${getPostMonth}/${getPostDay}/${getPostYear}`);
+    setSelectedPostDate(`${getPostMonth}/${getPostDay}/${getPostYear}`);
   }, [getPostMonth, getPostDay, getPostYear]);
 
   return (
-    <div
-      className="postCard"
-      onClick={() => {
-        history.push(`/singlepost/${post.id}`);
-      }}
-    >
-      <div className="postCard__user">
+    <div className="singlePostCard">
+      <div className="singlePostCard__user">
         <p>{post.username.substring(0, 1)}</p>
         <h6>@{post.username}</h6>
       </div>
-      <div className="postCard__title">
+      <div className="singlePostCard__title">
         <h3>{post.title}</h3>
       </div>
-      <div className="postCard__text">
+      <div className="singlePostCard__text">
         <p>{post.postText}</p>
-        <p className="postCard__textPostDate">{postDate}</p>
+        <p className="postCard__textPostDate">{selectedPostDate}</p>
       </div>
     </div>
   );
 };
 
-export default PostCard;
+export default SinglePostCard;

@@ -2,4 +2,13 @@
 
 .singlePost {
     border: 2px solid $primary-color;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: $primary-color;
+    min-height: 100vh;
+    padding: 2rem;
+    .singlePost__left {
+        color: $font-color;
+    }
+
 }
