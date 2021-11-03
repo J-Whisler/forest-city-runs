@@ -68,6 +68,12 @@
                     padding: 0.5rem 1rem;
                     border-radius: 0.5rem;
                     margin-right: 1rem;
+                    transition: all 0.3s ease-in-out;
+                    &:hover {
+                        border: 2px solid $primary-color;
+                        background: $primary-color;
+                        color: $secondary-color
+                    }
                 }
                 &.create {
                     border: 2px solid $secondary-color;
@@ -76,6 +82,12 @@
                     padding: 0.5rem 2.5rem;
                     border-radius: 0.5rem;
                     margin-left: 1rem;
+                    transition: all 0.3s ease-in-out;
+                    &:hover {
+                        border: 2px solid $primary-color;
+                        background: $primary-color;
+                        color: $secondary-color
+                    }
 
                 }
             }
