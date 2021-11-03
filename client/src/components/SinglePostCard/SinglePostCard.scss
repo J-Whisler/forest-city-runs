@@ -5,8 +5,60 @@
     border-radius: 0.2rem;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 2rem;
     margin-bottom: 1rem;
-    cursor: pointer;
+    max-width: 85%;
+    // cursor: pointer;
     transition: all 0.3s ease-in-out;
+    .singlePostCard__user {
+        display: flex;
+        align-items: center;
+        p {
+           border: 2px solid $secondary-color;
+           border-radius: 50%;
+           padding: 0.1rem 1.5rem;
+           font-family: $accent-font;
+           font-size: 3rem;
+           background-color: rgb(9, 29, 4);
+           color: $secondary-color; 
+           box-shadow: 0px 0px 150px $secondary-color;
+           margin: 0 1rem 0 0.5rem;
+        }
+        h6 {
+            color: $font-color;
+            font-family: $main-font;
+            font-size: 1.8rem;
+            // margin-left: 4rem;
+            opacity: 0.3;
+            text-shadow: 0px 0px 10px $primary-color;
+            margin: 0 0.5rem 0 1rem;
+
+        }
+    }
+
+    .singlePostCard__title {
+        color: $font-color;
+        margin-top: 2rem;
+        h3 {
+            font-family: $accent-font;
+            letter-spacing: 0.05rem;
+            font-size: 2.5rem;
+            text-decoration: underline;
+        }
+    }
+
+    .singlePostCard__text {
+        color: $font-color;
+        p {
+            margin-top: 0.8rem;
+            font-family: $main-font;
+            line-height: 1.5; 
+            font-size: 1.7rem;
+         }
+         .postCard__textPostDate {
+             opacity: 0.3;
+             font-family: $accent-font;
+             letter-spacing: 0.1rem;
+         }
+    }
 }

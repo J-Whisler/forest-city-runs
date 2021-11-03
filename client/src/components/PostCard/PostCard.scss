@@ -23,6 +23,7 @@
            box-shadow: 0px 0px 150px $secondary-color;
         }
         h6 {
+            color: $font-color;
             font-family: $main-font;
             font-size: 1.2rem;
             margin-left: 0.5rem;
@@ -31,14 +32,18 @@
         }
     }
     .postCard__title {
+        color: $font-color;
         margin-top: 0.5rem;
-        font-family: $accent-font;
-        letter-spacing: 0.05rem;
-        font-size: 1.4rem;
-        text-decoration: underline;
+        h3 {
+            font-family: $accent-font;
+            letter-spacing: 0.05rem;
+            font-size: 1.8rem;
+            text-decoration: underline;
+        }
     }
 
     .postCard__text {
+        color: $font-color;
         p {
            margin-top: 0.3rem;
            font-family: $main-font;

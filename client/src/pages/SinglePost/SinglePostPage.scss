@@ -6,9 +6,18 @@
     grid-template-columns: repeat(2, 1fr);
     background: $primary-color;
     min-height: 100vh;
-    padding: 2rem;
+    padding: 2rem 0;
     .singlePost__left {
-        color: $font-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid $secondary-color;
     }
+    .singlePost__right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: 1px solid $secondary-color;
 
+    }
 }
