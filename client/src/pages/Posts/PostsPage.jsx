@@ -24,6 +24,7 @@ const PostsPage = () => {
           >
             Newest
           </h5>
+          <div className="postPage__filterDivider"></div>
           <h5
             onClick={() => setFilterOptions(false)}
             className={!filterOptions ? "activeFilter" : ""}

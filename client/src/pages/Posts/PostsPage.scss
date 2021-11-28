@@ -27,15 +27,22 @@
                cursor: pointer;
                opacity: 0.3;
                color: $secondary-color;
+               margin-right: 0.3rem;
+               margin-left: 0.3rem;
                transform: scale(0.97);
-
                &.activeFilter {
                    opacity: 0.9;
                    transform: scale(1.03);
                    text-shadow: 0px 0px 5px $secondary-color-shadow;
-               }
+ 
             }
         }
+    }
+    .postPage__filterDivider {
+     border: 2px solid $secondary-color;
+     padding: 0.2rem 0;
+     border-radius: 10rem;
+}
     }
     .postsPage__postsList {
         transition: all 0.5s ease-in-out;

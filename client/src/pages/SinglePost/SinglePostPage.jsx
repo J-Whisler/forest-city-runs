@@ -7,6 +7,7 @@ import CommentCard from "../../components/CommentCard/CommentCard";
 
 const SinglePostPage = () => {
   const [selectedPost, setSelectedPost] = useState([]);
+  // const [selectedPostUsername, setSelectedPostUsername] = useState("");
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   let { id } = useParams();
@@ -15,10 +16,21 @@ const SinglePostPage = () => {
     axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
       setSelectedPost([response.data]);
     });
+
     axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
       setComments(response.data);
     });
   }, [id]);
+
+  const getSelectedUsername = () => {
+    if (selectedPost.length === 0) {
+      return " ";
+    } else {
+      return selectedPost[0].username;
+    }
+  };
+
+  console.log(getSelectedUsername());
 
   const addComment = () => {
     axios
@@ -33,15 +45,12 @@ const SinglePostPage = () => {
       });
   };
 
-  // const username = selectedPost[0].username;
-  // console.log(selectedPost[0].username);
-
   return (
     <div className="singlePost">
       <div className="singlePost__post">
         <div className="singlePost__postTitle">
-          {/* <span> Post by: {selectedPost[0].username}</span> */}
-          <span>Title</span>
+          <span> Post by: {getSelectedUsername()}</span>
+          {/* <span>Title</span> */}
         </div>
         {selectedPost.map((post, key) => {
           return <PostCard post={post} key={key} />;
