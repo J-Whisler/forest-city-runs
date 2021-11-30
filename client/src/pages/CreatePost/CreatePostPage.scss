@@ -13,27 +13,30 @@
         label {
             color: $secondary-color;
             font-family: $accent-font;
-            font-size: 1.5rem;
+            font-size: 2rem;
             letter-spacing: 0.1rem;
             margin-bottom: 0.2rem;
         }
         span {
-            color: $font-color;
-            font-size: 1.2rem;
+            color: $error-message-color;
+            font-size: 1.4rem;
+            margin-bottom: 0.2rem;
+            font-family: $accent-font;
         }
         #createPostPage__formInput {
-            padding: 0.2rem 0.5rem;
-            font-size: 1.1rem;
+            padding: 0.5rem;
+            font-size: 1.3rem;
             font-family: $main-font;
-            margin-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            &:focus {
+                outline: 2px solid $secondary-color-shadow;
+            }
         }
         button {
-            // margin-top: 1rem;
-            width: 30%;
-            margin: 1rem auto 0 auto;
-            outline: none;
-            border: none;
+            border: 2px solid $secondary-color;
             background: $secondary-color;
+            width: 30%;
+            margin: 1.5rem auto;
             padding: 0.3rem 0;
             border-radius: 0.2rem;
             font-family: $accent-font;
@@ -42,7 +45,9 @@
             cursor: pointer;
             transition: all 0.2s ease-in-out;
             &:hover {
-                opacity: 0.5;
+                border: 2px solid $secondary-color;
+                background: $primary-color;
+                color: $secondary-color;
             }
         }
     }

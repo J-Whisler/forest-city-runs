@@ -16,7 +16,7 @@ const PostsPage = () => {
   return (
     <div className="postsPage">
       <div className="postsPage__dropdown">
-        <p>Filter By: </p>
+        <p>Sort By: </p>
         <div className="postsPage__dropdownFilterOptions">
           <h5
             onClick={() => setFilterOptions(true)}
