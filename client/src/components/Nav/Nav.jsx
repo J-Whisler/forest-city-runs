@@ -20,6 +20,12 @@ const Nav = () => {
         <Link to="/createpost" className="nav__linksLink">
           Create Post
         </Link>
+        <Link to="/login" className="nav__linksLink">
+          Login
+        </Link>
+        <Link to="/signup" className="nav__linksLink">
+          Sign Up
+        </Link>
       </div>
       <div className="nav__social">
         <i className="fab fa-twitter"></i>

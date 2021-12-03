@@ -30,6 +30,7 @@ const CreatePostPage = () => {
   let history = useHistory();
   return (
     <div className="createPostPage">
+      <h4 className="createPostPage__title">Create Post</h4>
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}

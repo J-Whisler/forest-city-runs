@@ -4,6 +4,18 @@
     background: $primary-color;
     min-height: 100vh;
     padding: 5rem 25rem;
+    display: flex;
+    flex-direction: column;
+    .createPostPage__title {
+        color: $secondary-color;
+        display: flex;
+        align-self: center;
+        font-family: $accent-font;
+        font-size: 2.5rem;
+        letter-spacing: 0.2rem;
+        text-decoration: underline;
+        margin-bottom: 1rem;
+    }
     .createPostPage__formContainer {
         border: 2px solid $secondary-color;
         border-radius: 0.2rem;

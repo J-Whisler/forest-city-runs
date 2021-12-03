@@ -30,8 +30,6 @@ const SinglePostPage = () => {
     }
   };
 
-  console.log(getSelectedUsername());
-
   const addComment = () => {
     axios
       .post("http://localhost:3001/comments", {
@@ -49,8 +47,9 @@ const SinglePostPage = () => {
     <div className="singlePost">
       <div className="singlePost__post">
         <div className="singlePost__postTitle">
-          <span> Post by: {getSelectedUsername()}</span>
-          {/* <span>Title</span> */}
+          <p>
+            Post by: <span>@{getSelectedUsername()}</span>
+          </p>
         </div>
         {selectedPost.map((post, key) => {
           return <PostCard post={post} key={key} />;

@@ -5,6 +5,8 @@ import HomePage from './pages/Home/HomePage';
 import CreatePostPage from './pages/CreatePost/CreatePostPage';
 import PostsPage from './pages/Posts/PostsPage';
 import SinglePostPage from './pages/SinglePost/SinglePostPage';
+import Login from './pages/Login/Login';
+import Signup from './pages/Signup/Signup';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/createpost" component={CreatePostPage} />
           <Route path="/posts" component={PostsPage} />
           <Route path="/singlePost/:id" component={SinglePostPage} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
         </Switch>
       </div>
     </Router>
