@@ -11,7 +11,7 @@ const Nav = () => {
         </Link>
       </div>
       <div className="nav__links">
-        <Link to="/" className="nav__linksLink">
+        <Link to="/" className="nav__linksLink link-home">
           Home
         </Link>
         <Link to="/posts" className="nav__linksLink">
@@ -20,13 +20,14 @@ const Nav = () => {
         <Link to="/createpost" className="nav__linksLink">
           Create Post
         </Link>
-        <Link to="/login" className="nav__linksLink">
+        <Link to="/createpost" className="nav__linksLink">
           Login
         </Link>
-        <Link to="/signup" className="nav__linksLink">
+        <Link to="/createpost" className="nav__linksLink link-signup">
           Sign Up
         </Link>
       </div>
+
       <div className="nav__social">
         <i className="fab fa-twitter"></i>
         <i className="fab fa-instagram"></i>

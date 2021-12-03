@@ -2,13 +2,16 @@
 
 .nav {
     border-bottom: 2px solid $secondary-color;
-    padding: 1.5rem 5rem;
-    display: flex;
-    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    display: grid;
+    grid-template-columns: 2fr 5fr 1.5fr;
+    gap: 0.5rem;
+    justify-content: center;
     align-items: center;
     text-align: center;
     background: $primary-color;
     color: $secondary-color;
+  
     .nav__logo {
         font-family: $accent-font;
         font-size: 2rem;
@@ -33,7 +36,6 @@
     }
     .nav__links {
         display: flex;
-        width: 38rem;
         justify-content: space-evenly;
         .nav__linksLink {
             text-decoration: none;
@@ -45,6 +47,9 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            // &.link-home {
+            //     border-left: 2px solid $secondary-color-shadow;
+            // }
             &::after {
                 content: "";
                 position: absolute;
@@ -64,15 +69,19 @@
         }
     }
     .nav__social {
-        width: 10rem;
+        border: 2px solid $secondary-color;
+        border-radius: 0.5rem;
+        padding: 1rem 0.1rem;
+        background: rgba(197, 255, 197, 0.15);
         display: flex;
         justify-content: space-around;
         i {
             font-size: 2rem;
             cursor: pointer;
             transition: all 0.2s ease-in-out;
+            text-shadow: 0 0 10px rgb(0,0,0);
             &:hover {
-                transform: scale(1.1);
+                transform: scale(1.15);
             }
         }
     }
