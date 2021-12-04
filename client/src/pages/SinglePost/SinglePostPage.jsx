@@ -86,7 +86,7 @@ const SinglePostPage = () => {
             type="text"
             placeholder="Comment..."
             value={newComment}
-            rows="3"
+            rows="2"
           />
           <button onClick={addComment} className="singlePost__addCommentButton">
             Add Comment
