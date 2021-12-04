@@ -5,11 +5,18 @@
     background: rgba(255, 255, 255, 0.15);
     border-radius: 0.5rem;
     margin-bottom: 0.5rem;
-    
+    color: $font-color;
+    padding: 1rem 2rem;
+
+    span {
+        // col
+        font-family: $accent-font;
+        opacity: 0.3;
+        font-size: 1.1rem;
+        // letter-spacing: 0.1rem;
+    }
     p {
-        color: $font-color;
         font-family: $main-font;
-        padding: 1rem 2rem;
         font-size: 1.5rem;
     }
 }

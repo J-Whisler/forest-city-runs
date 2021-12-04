@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./SinglePostPage.scss";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import PostCard from "../../components/PostCard/PostCard";
 import CommentCard from "../../components/CommentCard/CommentCard";
@@ -40,7 +40,7 @@ const SinglePostPage = () => {
         },
         {
           headers: {
-            accessToken: sessionStorage.getItem("accessToken"),
+            accessToken: localStorage.getItem("accessToken"),
           },
         }
       )
@@ -48,7 +48,10 @@ const SinglePostPage = () => {
         if (response.data.error) {
           console.log(response.data.error);
         } else {
-          const commentToAdd = { commentBody: newComment };
+          const commentToAdd = {
+            commentBody: newComment,
+            username: response.data.username,
+          };
           setComments([...comments, commentToAdd]);
           setNewComment("");
         }
@@ -57,6 +60,12 @@ const SinglePostPage = () => {
 
   return (
     <div className="singlePost">
+      <div className="singlePost__allPostsButton">
+        <Link className="singlePost__allPostsButtonLink" to="/posts">
+          <i className="fas fa-arrow-left"></i>
+          <span>Back</span>
+        </Link>
+      </div>
       <div className="singlePost__post">
         <div className="singlePost__postTitle">
           <p>
@@ -64,7 +73,7 @@ const SinglePostPage = () => {
           </p>
         </div>
         {selectedPost.map((post, key) => {
-          return <PostCard post={post} key={key} />;
+          return <PostCard className="postCard" post={post} key={key} />;
         })}
       </div>
       <div className="singlePost__comments">
