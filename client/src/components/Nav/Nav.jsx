@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
 import { AuthContext } from "../../helpers/AuthContext";
@@ -8,10 +8,14 @@ const Nav = () => {
 
   const logout = () => {
     localStorage.removeItem("accessToken");
-    setAuthState(false);
+    setAuthState({
+      usermame: "",
+      id: 0,
+      status: false,
+    });
   };
   return (
-    <div className={authState ? "nav logged-in" : "nav logged-out"}>
+    <div className={authState.status ? "nav logged-in" : "nav logged-out"}>
       <div className="nav__logo">
         <Link to="/" className="nav__logoLink">
           Forest City Runs
@@ -29,9 +33,9 @@ const Nav = () => {
         <Link to="/createpost" className="nav__linksLink">
           Create Post
         </Link>
-        <div className="nav__linksDivider"></div>
-        {!authState && (
+        {!authState.status && (
           <>
+            <div className="nav__linksDivider"></div>
             <Link to="/login" className="nav__linksLink">
               Login
             </Link>
@@ -49,9 +53,13 @@ const Nav = () => {
         <i className="fab fa-reddit"></i>
       </div>
 
-      {authState && (
+      {authState.status && (
         <div className="nav__userInfo">
-          <span>J</span>
+          <span>
+            {authState.username === undefined
+              ? ""
+              : authState.username.substring(0, 1)}
+          </span>
           <button onClick={logout}>Log Out</button>
         </div>
       )}

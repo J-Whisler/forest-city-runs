@@ -16,7 +16,6 @@ const PostCard = ({ post }) => {
   useEffect(() => {
     setPostDate(`${getPostMonth}/${getPostDay}/${getPostYear}`);
   }, [getPostMonth, getPostDay, getPostYear]);
-  console.log(post);
   return (
     <div
       className="postCard"
