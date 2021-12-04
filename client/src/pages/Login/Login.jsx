@@ -1,15 +1,23 @@
 import React, { useState } from "react";
 import "./Login.scss";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  let history = useHistory();
+
   const login = () => {
     const data = { username: username, password: password };
     axios.post("http://localhost:3001/auth/login", data).then((response) => {
-      console.log(response.data);
+      if (response.data.error) {
+        alert(response.data.error);
+      } else {
+        sessionStorage.setItem("accessToken", response.data);
+        history.push("/");
+      }
     });
   };
 
@@ -24,7 +32,7 @@ const Login = () => {
             setUsername(e.target.value);
           }}
           id="login__formInput"
-          placeholder="Enter your desired username"
+          placeholder="Enter your username"
         />
         <label htmlFor="password">Password:</label>
         <input
@@ -33,7 +41,7 @@ const Login = () => {
             setPassword(e.target.value);
           }}
           id="login__formInput"
-          placeholder="Enter your desired password"
+          placeholder="Enter your password"
         />
 
         <button onClick={login}>Login</button>

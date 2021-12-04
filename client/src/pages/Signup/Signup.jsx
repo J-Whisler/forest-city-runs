@@ -38,7 +38,7 @@ const Signup = () => {
           <Field
             id="signup__formInput"
             name="username"
-            placeholder="Enter your username here"
+            placeholder="Enter your desired username here"
           />
           <label>Password: </label>
           <ErrorMessage name="password" component="span" />
@@ -46,7 +46,7 @@ const Signup = () => {
             id="signup__formInput"
             name="password"
             type="password"
-            placeholder="Enter your password here"
+            placeholder="Enter your desired password here"
           />
 
           <button className="signup__button" type="submit">

@@ -20,10 +20,10 @@ const Nav = () => {
         <Link to="/createpost" className="nav__linksLink">
           Create Post
         </Link>
-        <Link to="/createpost" className="nav__linksLink">
+        <Link to="/login" className="nav__linksLink">
           Login
         </Link>
-        <Link to="/createpost" className="nav__linksLink link-signup">
+        <Link to="/signup" className="nav__linksLink link-signup">
           Sign Up
         </Link>
       </div>
