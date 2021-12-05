@@ -98,7 +98,12 @@ const SinglePostPage = () => {
           </div>
           <div className="singlePost__commentsListComments">
             {comments.map((comment, key) => (
-              <CommentCard comment={comment} key={key} />
+              <CommentCard
+                comment={comment}
+                key={key}
+                comments={comments}
+                setComments={setComments}
+              />
             ))}
           </div>
         </div>

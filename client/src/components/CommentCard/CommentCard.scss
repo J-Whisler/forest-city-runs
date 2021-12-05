@@ -6,17 +6,53 @@
     border-radius: 0.5rem;
     margin-bottom: 0.5rem;
     color: $font-color;
-    padding: 1rem 2rem;
-
-    span {
-        // col
-        font-family: $accent-font;
-        opacity: 0.3;
-        font-size: 1.1rem;
-        // letter-spacing: 0.1rem;
+    display: grid;
+    padding: 1rem 0 1rem 1.5rem;
+    grid-template-columns: 4fr 0.1rem 1fr;
+    align-items: center;
+    overflow: hidden;
+    .commentCard__content {
+        span {
+            font-family: $accent-font;
+            opacity: 0.3;
+            font-size: 1.1rem;
+        }
+        p {
+            font-family: $main-font;
+            font-size: 1.5rem;
+        } 
     }
-    p {
-        font-family: $main-font;
-        font-size: 1.5rem;
+    .commentCard__divider {
+        border: 2px solid $secondary-color;
+        border-radius: 10rem;
+        opacity: 0.25;
+        height: 200%;
+        display: none;
+        &.authUser {
+            display: flex;
+        }
     }
+    .commentCard__delete {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.5;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        color: $font-color;
+        &:hover {
+            opacity: 0.6;
+            transform: scale(0.98);
+            color: $error-message-color;
+            opacity: 0.7;
+        }  
+        span {
+            font-family: $accent-font;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
+        i {
+            font-size: 2.5rem;    
+        }
+    }  
 }

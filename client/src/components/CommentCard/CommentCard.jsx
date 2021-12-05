@@ -1,11 +1,57 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./CommentCard.scss";
 
-const CommentCard = ({ comment }) => {
+import { AuthContext } from "../../helpers/AuthContext";
+import axios from "axios";
+
+const CommentCard = ({ comment, comments, setComments }) => {
+  const { authState } = useContext(AuthContext);
+
+  const deleteComment = (id) => {
+    axios
+      .delete(`http://localhost:3001/comments/${id}`, {
+        headers: {
+          accessToken: localStorage.getItem("accessToken"),
+        },
+      })
+      .then(() => {
+        setComments(
+          comments.filter((value) => {
+            return value.id != id;
+          })
+        );
+      });
+  };
+
   return (
     <div className="commentCard">
-      <span>@{comment.username}</span>
-      <p>{comment.commentBody}</p>
+      <div className="commentCard__content">
+        <span>@{comment.username}</span>
+        <p>{comment.commentBody}</p>
+      </div>
+
+      <div
+        className={
+          authState.username === comment.username
+            ? "commentCard__divider authUser"
+            : "commentCard__divider"
+        }
+      ></div>
+      <div
+        className={
+          authState.username === comment.username
+            ? "commentCard__delete authUser"
+            : "commentCard__delete"
+        }
+        onClick={() => deleteComment(comment.id)}
+      >
+        {authState.username === comment.username && (
+          <>
+            <span>Delete Comment</span>
+            <i className="fas fa-trash-alt"></i>
+          </>
+        )}
+      </div>
     </div>
   );
 };
