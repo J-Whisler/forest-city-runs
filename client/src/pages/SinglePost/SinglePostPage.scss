@@ -125,11 +125,17 @@
             }
         }
         .singlePost__contentMain {
-            border: 2px solid white;
+            // border: 2px solid $secondary-color-shadow;
+            border-radius: 1rem;
+            padding: 1rem 2rem;
             width: 80%;
             margin: 2rem auto;
+            background: rgb(34,34,34);
+            background: linear-gradient(124deg, rgba(34,34,34,1) 0%, rgb(56, 56, 56) 100%);
             .singlePost__contentMainPostText {
                 color: $font-color;
+                font-family: $main-font;
+                font-size: 1.5rem;
             }
         }
    

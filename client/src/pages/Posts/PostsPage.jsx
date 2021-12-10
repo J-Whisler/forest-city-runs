@@ -1,17 +1,16 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./PostsPage.scss";
 import axios from "axios";
 import PostCard from "../../components/PostCard/PostCard";
-import { ListOfPostsContext } from "../../helpers/ListOfPostsContext";
 
 const PostsPage = () => {
   const [filterOptions, setFilterOptions] = useState(true);
   const [listOfPosts, setListOfPosts] = useState([]);
-  console.log(listOfPosts);
 
   useEffect(() => {
     axios.get("http://localhost:3001/posts").then((response) => {
       setListOfPosts(response.data);
+      console.log(response.data);
     });
   }, []);
 

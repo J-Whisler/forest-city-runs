@@ -3,17 +3,16 @@ const router = express.Router();
 const { Likes } = require("../models");
 const {validateToken} = require("../middlewares/AuthMiddleware")
 
-// router.get("/:postId", async (req, res) => {
-//   const postId = req.params.postId;
-//   const likes = await Likes.findAll({ where: { PostId: postId } });
-//   res.json(likes);
-// });
+router.get("/:postId", async (req, res) => {
+  const postId = req.params.postId;
+  const likes = await Likes.findAll({ where: { PostId: postId } });
+  res.json(likes);
+});
 
 
 router.post("/", validateToken, async (req, res) => {
     const { PostId } = req.body;
     const UserId = req.user.id;
-  
     const found = await Likes.findOne({
         where: { PostId: PostId, UserId: UserId },
       });

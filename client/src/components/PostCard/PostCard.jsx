@@ -20,14 +20,12 @@ const PostCard = ({ post, listOfPosts, setListOfPosts, comments }) => {
 
   useEffect(() => {
     setPostDate(`${getPostMonth}/${getPostDay}/${getPostYear}`);
-    if (post.Likes.length > 0) {
-      setIsLiked(true);
-    } else {
-      setIsLiked(false);
+
+    if (post.Likes) {
     }
   }, [getPostMonth, getPostDay, getPostYear]);
 
-  // console.log(post.Likes.length);
+  console.log(post);
 
   const likeAPost = (postId) => {
     axios
@@ -41,12 +39,15 @@ const PostCard = ({ post, listOfPosts, setListOfPosts, comments }) => {
           listOfPosts.map((post) => {
             if (post.id === postId) {
               if (response.data.liked) {
+                console.log(response.data.liked);
                 setIsLiked(true);
                 return { ...post, Likes: [...post.Likes, "like"] };
               } else {
                 const likesArray = post.Likes;
                 likesArray.pop();
                 setIsLiked(false);
+                console.log(response.data.liked);
+
                 return { ...post, Likes: likesArray };
               }
             } else {
@@ -95,7 +96,9 @@ const PostCard = ({ post, listOfPosts, setListOfPosts, comments }) => {
             }}
             className="postCard__footerStatsComments"
           >
-            <i className="fas fa-comment"></i>
+            <i className="fas fa-comment">
+              <span>Click to see or add comments</span>
+            </i>
           </div>
         </div>
       </div>
