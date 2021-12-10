@@ -201,6 +201,10 @@
 
                 }
             }
+            .singlePost__commentsListComments {
+                display: flex;
+                flex-direction: column-reverse;
+            }
             
         }
     }

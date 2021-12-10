@@ -55,11 +55,18 @@ const Nav = () => {
 
       {authState.status && (
         <div className="nav__userInfo">
-          <span>
-            {authState.username === undefined
-              ? ""
-              : authState.username.substring(0, 1)}
-          </span>
+          <h5>
+            {authState.username === undefined ? (
+              ""
+            ) : (
+              <>
+                <span className="nav__userInfoTitle">Hello, </span>
+                <span className="nav__userInfoUsername">
+                  {authState.username}
+                </span>
+              </>
+            )}
+          </h5>
           <button onClick={logout}>Log Out</button>
         </div>
       )}
