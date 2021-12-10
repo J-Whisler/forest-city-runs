@@ -69,6 +69,7 @@
             align-items: center;
             font-size: 1.5rem;
             font-family: $accent-font;
+            width: 100%;
             .postCard__footerStatsLikes {
                 margin-right: 1rem;
                 i {
@@ -78,6 +79,7 @@
                     &.liked {
                         color: $secondary-color;
                         opacity: 1;
+                        text-shadow: 0px 0px 12px $secondary-color;
                     }
                     &.unliked {
                         color: $font-color;
@@ -99,6 +101,12 @@
                 // }
             }
             
+        }
+        .postCard__footerDivider {
+            border: 2px solid $secondary-color;
+            border-radius: 1rem;
+            // width: 10%;
+            opacity: 0.25;
         }
     }
     &:hover {

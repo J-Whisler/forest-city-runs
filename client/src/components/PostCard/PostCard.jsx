@@ -78,6 +78,7 @@ const PostCard = ({ post, listOfPosts, setListOfPosts, comments }) => {
       </div>
       <div className="postCard__footer">
         <p className="postCard__textPostDate">{postDate}</p>
+        <div className="postCard__footerDivider"></div>
         <div className="postCard__footerStats">
           <div className="postCard__footerStatsLikes">
             <i
