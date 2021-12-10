@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
 import "./PostsPage.scss";
-import axios from "axios";
+// import axios from "axios";
 import PostCard from "../../components/PostCard/PostCard";
+import { ListOfPostsContext } from "../../helpers/ListOfPostsContext";
 
 const PostsPage = () => {
-  const [listOfPosts, setListOfPosts] = useState([]);
   const [filterOptions, setFilterOptions] = useState(true);
-
-  useEffect(() => {
-    axios.get("http://localhost:3001/posts").then((response) => {
-      setListOfPosts(response.data);
-    });
-  }, []);
+  const { listOfPosts, setListOfPosts } = useContext(ListOfPostsContext);
+  console.log(listOfPosts);
 
   return (
     <div className="postsPage">
@@ -40,9 +36,22 @@ const PostsPage = () => {
             : "postsPage__postsList oldest"
         }
       >
-        {listOfPosts.map((post, key) => {
-          return <PostCard post={post} key={key} />;
-        })}
+        {/* {listOfPosts.typeOf === undefined ? (
+          ""
+        ) : ( */}
+        <>
+          {listOfPosts.map((post, key) => {
+            return (
+              <PostCard
+                listOfPosts={listOfPosts}
+                setListOfPosts={setListOfPosts}
+                post={post}
+                key={key}
+              />
+            );
+          })}
+        </>
+        {/* )} */}
       </div>
     </div>
   );

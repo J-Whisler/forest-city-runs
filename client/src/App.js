@@ -8,7 +8,10 @@ import SinglePostPage from './pages/SinglePost/SinglePostPage';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 
-import { AuthContext } from "./helpers/AuthContext"
+import { AuthContext } from "./helpers/AuthContext";
+import {ListOfPostsContext} from "./helpers/ListOfPostsContext";
+// import { isLikedContext } from './helpers/IsLikedContext';
+
 import {useState, useEffect} from "react";
 import axios from 'axios';
 
@@ -18,6 +21,9 @@ function App() {
     id: 0, 
     status: false
   });
+
+  const [listOfPosts, setListOfPosts] = useState({})
+  // const [isLiked, setIsLiked] = useState()
 
   useEffect(() => {
     axios
@@ -40,22 +46,30 @@ function App() {
           });
         }
       });
-  }, [authState]);
+        axios.get("http://localhost:3001/posts").then((response) => {
+          setListOfPosts(response.data);
+        });
+     
+  }, []);
 
   return (
     <div className="App">
       <AuthContext.Provider value={{ authState, setAuthState }}>
-        <Router>
-          <Nav />
-          <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/createpost" component={CreatePostPage} />
-            <Route path="/posts" component={PostsPage} />
-            <Route path="/singlePost/:id" component={SinglePostPage} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-          </Switch>
-        </Router>
+        <ListOfPostsContext.Provider value={{ listOfPosts, setListOfPosts }}>
+          {/* <isLikedContext.Provider value={{ isLiked, setIsLiked }}> */}
+            <Router>
+            <Nav />
+            <Switch>
+              <Route path="/" exact component={HomePage} />
+              <Route path="/createpost" component={CreatePostPage} />
+              <Route path="/posts" component={PostsPage} />
+              <Route path="/singlePost/:id" component={SinglePostPage} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
+            </Switch>
+          </Router>
+          {/* </isLikedContext.Provider>     */}
+        </ListOfPostsContext.Provider>
       </AuthContext.Provider>
     </div>
   );

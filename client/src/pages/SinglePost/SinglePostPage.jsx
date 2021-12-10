@@ -2,33 +2,28 @@ import React, { useEffect, useState } from "react";
 import "./SinglePostPage.scss";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import PostCard from "../../components/PostCard/PostCard";
 import CommentCard from "../../components/CommentCard/CommentCard";
 
 const SinglePostPage = () => {
   const [selectedPost, setSelectedPost] = useState([]);
-  // const [selectedPostUsername, setSelectedPostUsername] = useState("");
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
+  const [createdAt, setCreatedAt] = useState("1/1/2000");
+  const [selectedPostStats, setSelectedPostStats] = useState(false);
+  // const [selectedPostPostDate, setSelectedPostPostDate] = useState();
+
   let { id } = useParams();
 
   useEffect(() => {
     axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
-      setSelectedPost([response.data]);
+      setSelectedPost(response.data);
+      console.log(createdAt);
     });
 
     axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
       setComments(response.data);
     });
-  }, [id]);
-
-  const getSelectedUsername = () => {
-    if (selectedPost.length === 0) {
-      return " ";
-    } else {
-      return selectedPost[0].username;
-    }
-  };
+  }, []);
 
   const addComment = () => {
     axios
@@ -58,23 +53,84 @@ const SinglePostPage = () => {
       });
   };
 
+  const showStats = () => {
+    getSelectedPostPostDate();
+    setSelectedPostStats(true);
+  };
+  const hideStats = () => {
+    setSelectedPostStats(false);
+  };
+
+  const getSelectedPostPostDate = () => {
+    const postDateFromSql = selectedPost.createdAt;
+    const splitPostDateFromSql = postDateFromSql.split(/[- :]/);
+    const getPostMonth = splitPostDateFromSql[1];
+    const getPostDay = splitPostDateFromSql[2].substring(0, 2);
+    const getPostYear = splitPostDateFromSql[0];
+    setCreatedAt(`${getPostMonth}/${getPostDay}/${getPostYear}`);
+  };
+
   return (
     <div className="singlePost">
-      <div className="singlePost__allPostsButton">
-        <Link className="singlePost__allPostsButtonLink" to="/posts">
-          <i className="fas fa-arrow-left"></i>
-          <span>Back</span>
-        </Link>
-      </div>
-      <div className="singlePost__post">
-        <div className="singlePost__postTitle">
-          <p>
-            Post by: <span>@{getSelectedUsername()}</span>
-          </p>
+      <div className="singlePost__content">
+        <div className="singlePost__contentHeader">
+          <div className="singlePost__contentHeaderBack">
+            <Link className="singlePost__contentHeaderBackButton" to="/posts">
+              <i className="fas fa-arrow-left"></i>
+              <span>Back</span>
+            </Link>
+          </div>
+
+          <div className="singlePost__contentHeaderPostBy">
+            <h5>
+              Post By: <span>@{selectedPost.username}</span>
+            </h5>
+          </div>
+          <div className="singlePost__contentHeaderPostStats">
+            {selectedPostStats ? (
+              <>
+                {" "}
+                <div className="singlePost__contentHeaderPostShowStats">
+                  <div className="singlePost__contentHeaderPostShowStatsLikes">
+                    <div className="likes">
+                      <h6>
+                        Likes: <span>{selectedPost.Likes.length}</span>
+                      </h6>
+                    </div>
+                  </div>
+                  <div className="singlePost__contentHeaderPostStatsDivider"></div>
+                  <div className="singlePost__contentHeaderPostShowStatsPostDate">
+                    <div className="postDate">
+                      <h6>
+                        Posted On: <span>{createdAt}</span>
+                      </h6>
+                    </div>
+                    <button
+                      onClick={hideStats}
+                      className="singlePost__contentHeaderPostHideStatsButton"
+                    >
+                      Hide Stats
+                    </button>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={showStats}
+                  className="singlePost__contentHeaderShowStatsButton"
+                >
+                  Show Post Stats and Info
+                </button>
+              </>
+            )}
+          </div>
         </div>
-        {selectedPost.map((post, key) => {
-          return <PostCard className="postCard" post={post} key={key} />;
-        })}
+        <main className="singlePost__contentMain">
+          <article className="singlePost__contentMainPostText">
+            {selectedPost.postText}
+          </article>
+        </main>
       </div>
       <div className="singlePost__comments">
         <div className="singlePost__addComment">

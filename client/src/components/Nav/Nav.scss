@@ -11,11 +11,12 @@
     color: $secondary-color;
     &.logged-in {
         display: grid;
-        grid-template-columns: 2fr 5fr 1.5fr 1fr;
+        grid-template-columns: 2fr 5fr 1.5fr;
     }
     &.logged-out {
         display: grid;
-        grid-template-columns: 2fr 5fr 1.5fr
+        gap: 3rem;
+        grid-template-columns: 2fr 5fr;
     }
   
     .nav__logo {

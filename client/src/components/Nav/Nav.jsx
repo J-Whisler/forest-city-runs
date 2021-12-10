@@ -47,11 +47,11 @@ const Nav = () => {
         )}
       </div>
 
-      <div className="nav__social">
+      {/* <div className="nav__social">
         <i className="fab fa-twitter"></i>
         <i className="fab fa-instagram"></i>
         <i className="fab fa-reddit"></i>
-      </div>
+      </div> */}
 
       {authState.status && (
         <div className="nav__userInfo">

@@ -7,6 +7,8 @@ import axios from "axios";
 const CommentCard = ({ comment, comments, setComments }) => {
   const { authState } = useContext(AuthContext);
 
+  // console.log(authState);
+
   const deleteComment = (id) => {
     axios
       .delete(`http://localhost:3001/comments/${id}`, {
@@ -16,8 +18,8 @@ const CommentCard = ({ comment, comments, setComments }) => {
       })
       .then(() => {
         setComments(
-          comments.filter((value) => {
-            return value.id != id;
+          comments.filter((comment) => {
+            return comment.id !== id;
           })
         );
       });

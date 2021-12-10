@@ -7,58 +7,135 @@
     background: $primary-color;
     min-height: 100vh;
     padding: 2rem 8rem;
-    .singlePost__allPostsButton {
-        border: 2px solid $secondary-color;
-        border-radius: 1rem;
-        width: 8rem;
-        display: flex;
-        // justify-content: space-between;
-        background: rgba(197, 255, 197, 0.15);
-        padding: 0.5rem 1.5rem;
-        margin-top: 0.5rem;
-        margin-bottom: 1.5rem;
-        transition: all 0.3s ease-in-out;
-        .singlePost__allPostsButtonLink {
-            text-decoration: none;
-            font-family: $accent-font;
-            color: $font-color;
-            opacity: 0.9;
-            font-size: 1.2rem;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-        }
-        &:hover {
-            cursor: pointer;
-            transform: scale(0.98);
-            opacity: 0.7;
-        }
-    }
-    .singlePost__post {
+    
+    .singlePost__content {
+        padding: 1rem;
+        margin-bottom: 2rem;
         display: flex;
         flex-direction: column;
-        margin-bottom: 2rem;
-        .postCard {
-           &:hover {
-            cursor: default;
-            transform: none;
-            box-shadow: none;
-           }
-        }
-        .singlePost__postTitle {
-            margin-bottom: 1rem;
-            p {
-                color: $font-color;
-                font-family: $main-font;
-                font-size: 2.2rem;
+        .singlePost__contentHeader {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            .singlePost__contentHeaderBack {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .singlePost__contentHeaderBackButton {
+                    border: 2px solid $secondary-color;
+                    border-radius: 1rem;
+                    text-decoration: none;
+                    color: $font-color;
+                    font-size: 1.6rem;
+                    padding: 0.5rem 1.5rem;
+                    transition: all 0.3s ease-in-out;
+                    i {
+                      margin-right: 1rem;
+                    }
+                    span {
+                      font-family: $accent-font;
+                      letter-spacing: 0.3rem;
+                    }
+                    &:hover {
+                        background: $secondary-color;
+                        i {
+                            color: $primary-color;
+                        }
+                        span {
+                            color: $primary-color;
+                        }
+                    }
+                }
+            }
+         
+            .singlePost__contentHeaderPostBy {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                h5 {
+                    color: $font-color;
+                    font-size: 3rem;
+                    font-family: $main-font;
+                }
                 span {
-                    opacity: 0.6;
+                    font-family: $accent-font;
+                    opacity: 0.5;
+                }
+            }
+            .singlePost__contentHeaderPostStats {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: center;
+                // padding: 0 3rem;
+                .singlePost__contentHeaderPostShowStats {
+                    display: flex;
+                    flex-direction: column;
+                    // text-align: right;
+                    // width: 50%;
+                    .singlePost__contentHeaderPostShowStatsLikes, .singlePost__contentHeaderPostShowStatsPostDate {
+                        .likes, .postDate {
+                            h6 {
+                                color: $font-color;
+                                font-size: 1.3rem;
+                                margin: 0.3rem 0;
+                                font-family: $accent-font;
+                                letter-spacing: 0.2rem;
+                                padding-left: 0.1rem;  
+                                span {
+                                    color: $font-color;
+                                    // opacity: 0.7;
+                                    font-family: $accent-font;
+                                    opacity: 0.7;
+                                    font-size: 1rem;
+                                }
+                            }
+                          
+                        }
+                        .singlePost__contentHeaderPostHideStatsButton {
+                            font-family: $accent-font;
+                            font-size: 1.2rem;
+                            padding: 0 0.5rem;
+                            background: $secondary-color;
+                            border: 2px solid $secondary-color;
+                            border-radius: 0.5rem;
+                            display: flex;
+                            margin: auto;
+                            cursor: pointer;
+                        }
+                    }
+                  
+ 
+                    .singlePost__contentHeaderPostStatsDivider {
+                        border: 2px solid $secondary-color;
+                        border-radius: 1rem;
+                        opacity: 0.3;
+                        // width: 70%;
+                    }
+                }
+                .singlePost__contentHeaderShowStatsButton {
+                    font-family: $accent-font;
+                    font-size: 1.5rem;
+                    background: $secondary-color;
+                    border: 2px solid $secondary-color;
+                    border-radius: 0.5rem;
+                    padding: 0 0.5rem;
+                    cursor: pointer;
                 }
             }
         }
-
+        .singlePost__contentMain {
+            border: 2px solid white;
+            width: 80%;
+            margin: 2rem auto;
+            .singlePost__contentMainPostText {
+                color: $font-color;
+            }
+        }
+   
     }
+
+
     .singlePost__comments {
         border-top: 2px solid rgba(197, 255, 197, 0.2);
         display: flex;

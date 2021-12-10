@@ -1,17 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const { Posts } = require("../models");
+const { Posts, Likes, Comments } = require("../models");
 
 router.get("/", async (req, res) => {
-  const listOfPosts = await Posts.findAll();
+  const listOfPosts = await Posts.findAll({include: [Likes]}, {include: [Comments]});
   res.json(listOfPosts);
   
 });
 
 router.get("/byId/:id", async (req, res) => {
   const id = req.params.id;
-  const post = await Posts.findByPk(id);
-  res.json(post);
+  const singlePost = await Posts.findByPk(id, {include: [Likes]},{include: [Comments]});
+  res.json(singlePost);
 });
 
 router.post("/", async (req, res) => {
