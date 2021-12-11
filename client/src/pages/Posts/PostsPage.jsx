@@ -1,26 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./PostsPage.scss";
 import axios from "axios";
 import PostCard from "../../components/PostCard/PostCard";
+import { useHistory } from "react-router-dom";
+import { AuthContext } from "../../helpers/AuthContext";
 
 const PostsPage = () => {
   const [filterOptions, setFilterOptions] = useState(true);
   const [listOfPosts, setListOfPosts] = useState([]);
   const [likedPosts, setLikedPosts] = useState([]);
+  const { authState } = useContext(AuthContext);
+
+  let history = useHistory();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/posts", {
-        headers: { accessToken: localStorage.getItem("accessToken") },
-      })
-      .then((response) => {
-        setListOfPosts(response.data.listOfPosts);
-        setLikedPosts(
-          response.data.likedPosts.map((like) => {
-            return like.PostId;
-          })
-        );
-      });
+    if (!authState.status) {
+      history.push("/login");
+      alert("You must be logged in to see posts!");
+    } else {
+      axios
+        .get("http://localhost:3001/posts", {
+          headers: { accessToken: localStorage.getItem("accessToken") },
+        })
+        .then((response) => {
+          setListOfPosts(response.data.listOfPosts);
+          setLikedPosts(
+            response.data.likedPosts.map((like) => {
+              return like.PostId;
+            })
+          );
+        });
+    }
   }, []);
 
   return (
