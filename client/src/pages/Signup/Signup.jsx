@@ -3,6 +3,7 @@ import "./Signup.scss";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const initialValues = {
@@ -48,10 +49,23 @@ const Signup = () => {
             type="password"
             placeholder="Enter your desired password here"
           />
-
-          <button className="signup__button" type="submit">
-            Sign Up
-          </button>
+          <div className="signup__formButtons">
+            <div className="formButtons__signUpButtonContainer">
+              <button
+                className="signup__button"
+                type="submit"
+                className="signup__btn"
+              >
+                Sign Up
+              </button>
+            </div>
+            <div className="formButtons__loginButtonContainer">
+              <h6 className="login__btnHeader">Already have an account?</h6>
+              <Link to="/login" className="login__btn">
+                Login Here!
+              </Link>
+            </div>
+          </div>
         </Form>
       </Formik>
     </div>

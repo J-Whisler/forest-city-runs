@@ -3,6 +3,7 @@ import "./Login.scss";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../helpers/AuthContext";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -50,8 +51,33 @@ const Login = () => {
           id="login__formInput"
           placeholder="Enter your password"
         />
+        <div className="login__formButtons">
+          <div className="formButtons__loginButtonContainer">
+            <button onClick={login} className="login__btn">
+              Login
+            </button>
+          </div>
+          <div className="formButtons__signUpButtonContainer">
+            <h6 className="signUp__btnHeader">Don't have an account?</h6>
+            <Link to="signup" className="signUp__btn">
+              Sign Up Here!
+            </Link>
+          </div>
+        </div>
+        {/* <div className="login__formContainterButtons">
+          <div className="login__formContainerButtonsLogin">
+            <button onClick={login} className="loginButton">
+              Login
+            </button>
+          </div>
 
-        <button onClick={login}>Login</button>
+          <div className="login__formContainerButtonsSignUp">
+            <h6 className="signupTitle">Don't have an account?</h6>
+            <Link to="/signup" className="signup">
+              Sign Up Here
+            </Link>
+          </div>
+        </div> */}
       </div>
     </div>
   );
