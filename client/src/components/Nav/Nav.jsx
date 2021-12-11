@@ -26,22 +26,25 @@ const Nav = () => {
           Home
         </Link>
         <div className="nav__linksDivider"></div>
-        <Link to="/posts" className="nav__linksLink">
-          All Posts
-        </Link>
-        <div className="nav__linksDivider"></div>
-        <Link to="/createpost" className="nav__linksLink">
-          Create Post
-        </Link>
-        {!authState.status && (
+
+        {!authState.status ? (
           <>
-            <div className="nav__linksDivider"></div>
             <Link to="/login" className="nav__linksLink">
               Login
             </Link>
             <div className="nav__linksDivider"></div>
             <Link to="/signup" className="nav__linksLink link-signup">
               Sign Up
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="/posts" className="nav__linksLink">
+              All Posts
+            </Link>
+            <div className="nav__linksDivider"></div>
+            <Link to="/createpost" className="nav__linksLink">
+              Create Post
             </Link>
           </>
         )}

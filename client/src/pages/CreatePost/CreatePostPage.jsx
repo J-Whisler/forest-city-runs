@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import "./CreatePostPage.scss";
 import { useHistory } from "react-router-dom";
+import { AuthContext } from "../../helpers/AuthContext";
 
 const CreatePostPage = () => {
+  const { authState } = useContext(AuthContext);
+  let history = useHistory();
+
   const initialValues = {
     title: "",
     postText: "",
@@ -27,7 +31,13 @@ const CreatePostPage = () => {
     });
   };
 
-  let history = useHistory();
+  useEffect(() => {
+    if (!authState.status) {
+      history.push("/login");
+      alert("You must log in to create a post!");
+    }
+  }, []);
+
   return (
     <div className="createPostPage">
       <h4 className="createPostPage__title">Create Post</h4>

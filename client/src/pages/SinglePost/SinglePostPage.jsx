@@ -10,6 +10,8 @@ const SinglePostPage = () => {
   const [newComment, setNewComment] = useState("");
   const [createdAt, setCreatedAt] = useState("1/1/2000");
   const [selectedPostStats, setSelectedPostStats] = useState(false);
+  const [likedPosts, setLikedPosts] = useState([]);
+
   // const [selectedPostPostDate, setSelectedPostPostDate] = useState();
 
   let { id } = useParams();
