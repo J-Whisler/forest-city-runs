@@ -8,8 +8,8 @@
     flex-direction: column;
     padding: 1rem;
     margin-bottom: 1rem;
-    background: rgb(34,34,34);
-            background: linear-gradient(124deg, rgb(20, 20, 20) 0%, rgb(30, 30, 30) 100%);
+    background: $primary-color;
+    background: linear-gradient(124deg, rgb(20, 20, 20) 0%, rgb(30, 30, 30) 100%);
     transition: all 0.3s ease-in-out;
     .postCard__body {
         cursor: pointer;

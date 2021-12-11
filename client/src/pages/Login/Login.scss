@@ -17,11 +17,13 @@
         margin-bottom: 1rem;
     }
     .login__formContainer {
-        border: 2px solid $secondary-color;
+        border: 1px solid $secondary-color;
         border-radius: 0.2rem;
         padding: 1rem 2rem;
         display: flex;
         flex-direction: column;
+        background: $primary-color;
+        background: linear-gradient(124deg, rgb(20, 20, 20) 0%, rgb(30, 30, 30) 100%);
         label {
             color: $secondary-color;
             font-family: $accent-font;
