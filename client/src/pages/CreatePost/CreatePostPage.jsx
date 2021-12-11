@@ -13,22 +13,21 @@ const CreatePostPage = () => {
   const initialValues = {
     title: "",
     postText: "",
-    username: "",
   };
 
   const validationSchema = Yup.object().shape({
     title: Yup.string().max(250).required("You must input a Title!"),
     postText: Yup.string().required("You must enter text for your post!"),
-    username: Yup.string()
-      .min(3)
-      .max(15)
-      .required("You must enter a username for your post!"),
   });
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:3001/posts", data).then((response) => {
-      history.push("/posts");
-    });
+    axios
+      .post("http://localhost:3001/posts", data, {
+        headers: { accessToken: localStorage.getItem("accessToken") },
+      })
+      .then((response) => {
+        history.push("/posts");
+      });
   };
 
   useEffect(() => {
@@ -61,13 +60,6 @@ const CreatePostPage = () => {
             id="createPostPage__formInput"
             name="postText"
             placeholder="Type your post here"
-          />
-          <label>Username: </label>
-          <ErrorMessage name="username" component="span" />
-          <Field
-            id="createPostPage__formInput"
-            name="username"
-            placeholder="Enter your username here"
           />
 
           <button type="submit"> Create Post</button>
