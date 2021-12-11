@@ -7,10 +7,10 @@ import PostsPage from './pages/Posts/PostsPage';
 import SinglePostPage from './pages/SinglePost/SinglePostPage';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
-
+import PageNotFound from './pages/PageNotFound/PageNotFound';
 import { AuthContext } from "./helpers/AuthContext";
 import {ListOfPostsContext} from "./helpers/ListOfPostsContext";
-// import { isLikedContext } from './helpers/IsLikedContext';
+
 
 import {useState, useEffect} from "react";
 import axios from 'axios';
@@ -64,6 +64,7 @@ function App() {
               <Route path="/singlePost/:id" component={SinglePostPage} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
+              <Route path="*" exact component={PageNotFound} />
             </Switch>
           </Router>
           {/* </isLikedContext.Provider>     */}
