@@ -72,6 +72,7 @@
             font-size: 1.5rem;
             font-family: $accent-font;
             width: 100%;
+            padding-right: 1rem;
             .postCard__footerStatsLikes {
                 margin-right: 1rem;
                 i {
@@ -106,6 +107,22 @@
                     }
                 }
                 
+            }
+            .deletePostBtn {
+                display: flex;
+                margin: 0 0 0 auto;
+                color: $error-message-color;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                span {
+                    margin-left: 0.5rem;
+                    font-family: $accent-font;
+                }
+                &:hover {
+                    text-shadow: 0 0 5px $primary-color;
+                    transform: scale(1.02);
+                    letter-spacing: 0.03rem;
+                }
             }
             
         }

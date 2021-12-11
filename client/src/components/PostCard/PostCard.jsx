@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import "./PostCard.scss";
 import axios from "axios";
-
+import { AuthContext } from "../../helpers/AuthContext";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 
 const PostCard = ({
@@ -14,10 +14,10 @@ const PostCard = ({
 }) => {
   const [postDate, setPostDate] = useState(``);
   const [isLiked, setIsLiked] = useState();
-  // const [comments, setComments] = useState([]);
-  // console.log(comments);
+
+  const { authState } = useContext(AuthContext);
+
   let history = useHistory();
-  // console.log(post);
 
   // Getting and formatting the post date
   const postDateFromSql = post.createdAt;
@@ -76,6 +76,16 @@ const PostCard = ({
       });
   };
 
+  const deletePost = (id) => {
+    axios
+      .delete(`http://localhost:3001/posts/${id}`, {
+        headers: { accessToken: localStorage.getItem("accessToken") },
+      })
+      .then(() => {
+        history.push("/");
+      });
+  };
+
   return (
     <div className="postCard">
       <div
@@ -120,6 +130,14 @@ const PostCard = ({
               <span>Click to see or add comments</span>
             </i>
           </div>
+          {authState.username === post.username && (
+            <i
+              onClick={() => deletePost(post.id)}
+              className="i fas fa-trash-alt deletePostBtn"
+            >
+              <span>Delete Post</span>
+            </i>
+          )}
         </div>
       </div>
     </div>
