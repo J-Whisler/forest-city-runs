@@ -67,7 +67,9 @@ const Nav = () => {
               </>
             )}
           </h5>
-          <button onClick={logout}>Log Out</button>
+          <button onClick={logout} className="logout">
+            Log Out
+          </button>
         </div>
       )}
     </div>
