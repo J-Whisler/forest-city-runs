@@ -16,7 +16,8 @@ const CommentCard = ({ comment, comments, setComments }) => {
           accessToken: localStorage.getItem("accessToken"),
         },
       })
-      .then(() => {
+      .then((response) => {
+        console.log(response);
         setComments(
           comments.filter((comment) => {
             return comment.id !== id;

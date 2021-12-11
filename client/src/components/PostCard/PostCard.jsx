@@ -3,7 +3,15 @@ import { useHistory } from "react-router-dom";
 import "./PostCard.scss";
 import axios from "axios";
 
-const PostCard = ({ post, listOfPosts, setListOfPosts, comments }) => {
+import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
+
+const PostCard = ({
+  post,
+  listOfPosts,
+  setListOfPosts,
+  likedPosts,
+  setLikedPosts,
+}) => {
   const [postDate, setPostDate] = useState(``);
   const [isLiked, setIsLiked] = useState();
   // const [comments, setComments] = useState([]);
@@ -25,7 +33,7 @@ const PostCard = ({ post, listOfPosts, setListOfPosts, comments }) => {
     }
   }, [getPostMonth, getPostDay, getPostYear]);
 
-  console.log(post);
+  // console.log(post);
 
   const likeAPost = (postId) => {
     axios
@@ -55,6 +63,16 @@ const PostCard = ({ post, listOfPosts, setListOfPosts, comments }) => {
             }
           })
         );
+
+        if (likedPosts.includes(postId)) {
+          setLikedPosts(
+            likedPosts.filter((id) => {
+              return id !== postId;
+            })
+          );
+        } else {
+          setLikedPosts([...likedPosts, postId]);
+        }
       });
   };
 
@@ -84,10 +102,12 @@ const PostCard = ({ post, listOfPosts, setListOfPosts, comments }) => {
           <div className="postCard__footerStatsLikes">
             <i
               className={
-                isLiked ? "fas fa-thumbs-up liked" : "fas fa-thumbs-up unliked"
+                likedPosts.includes(post.id)
+                  ? "fas fa-thumbs-up unlikeBtn"
+                  : "fas fa-thumbs-up likeBtn"
               }
               onClick={() => likeAPost(post.id)}
-            ></i>
+            />
             <span>{post.Likes.length}</span>
           </div>
           <div

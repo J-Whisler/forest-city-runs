@@ -89,7 +89,6 @@ const SinglePostPage = () => {
           <div className="singlePost__contentHeaderPostStats">
             {selectedPostStats ? (
               <>
-                {" "}
                 <div className="singlePost__contentHeaderPostShowStats">
                   <div className="singlePost__contentHeaderPostShowStatsLikes">
                     <div className="likes">

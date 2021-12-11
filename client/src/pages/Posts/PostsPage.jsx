@@ -6,12 +6,21 @@ import PostCard from "../../components/PostCard/PostCard";
 const PostsPage = () => {
   const [filterOptions, setFilterOptions] = useState(true);
   const [listOfPosts, setListOfPosts] = useState([]);
+  const [likedPosts, setLikedPosts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/posts").then((response) => {
-      setListOfPosts(response.data);
-      console.log(response.data);
-    });
+    axios
+      .get("http://localhost:3001/posts", {
+        headers: { accessToken: localStorage.getItem("accessToken") },
+      })
+      .then((response) => {
+        setListOfPosts(response.data.listOfPosts);
+        setLikedPosts(
+          response.data.likedPosts.map((like) => {
+            return like.PostId;
+          })
+        );
+      });
   }, []);
 
   return (
@@ -52,6 +61,8 @@ const PostsPage = () => {
                 setListOfPosts={setListOfPosts}
                 post={post}
                 key={key}
+                likedPosts={likedPosts}
+                setLikedPosts={setLikedPosts}
               />
             );
           })}
