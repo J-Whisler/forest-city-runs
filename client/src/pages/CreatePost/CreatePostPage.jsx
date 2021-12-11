@@ -31,7 +31,7 @@ const CreatePostPage = () => {
   };
 
   useEffect(() => {
-    if (!authState.status) {
+    if (!localStorage.getItem("accessToken")) {
       history.push("/login");
       alert("You must log in to create a post!");
     }

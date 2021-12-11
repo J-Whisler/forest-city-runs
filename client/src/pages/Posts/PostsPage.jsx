@@ -14,7 +14,7 @@ const PostsPage = () => {
   let history = useHistory();
 
   useEffect(() => {
-    if (!authState.status) {
+    if (!localStorage.getItem("accessToken")) {
       history.push("/login");
       alert("You must be logged in to see posts!");
     } else {
