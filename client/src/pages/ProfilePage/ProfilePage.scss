@@ -8,73 +8,91 @@
         border: 2px solid $secondary-color;
         border-radius: 1rem;
         color: $font-color; 
-        padding: 1rem 3rem;
+        padding: 2rem 3rem 1rem;
         display: flex;
         flex-direction: column;
         .profilePage__info {
             .profilePage__infoTop {
-                display: flex;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
                 align-items: center;
-                justify-content: space-evenly;
+                justify-content: center;
+                
                 h5 {
                     border: 2px solid $secondary-color-shadow;
                     background: $secondary-color;
                     color: $primary-color;
                     border-radius: 50%;
-                    padding: 0 4rem;
+                    padding: 0 3.5rem;
                     width: 5rem;
                     font-family: $accent-font;
                     font-size: 5rem;
                     display: flex;
-                    align-items: center;
                     justify-content: center;
+                    justify-self: center;
                 }
                 .username {
                     line-height: 1.2;
+                    display: flex;
+                    justify-self: center;
+                    align-items: center;
                     h6 {
                         font-family: $main-font;
                         font-size: 1.2rem;
                         opacity: 0.5;
                         letter-spacing: 0.3rem;
+                        margin-right: 0.5rem;
                     }
-                    h1 {
+                    h3 {
                         font-family: $accent-font;
                         display: flex;
                         letter-spacing: 0.15rem;
+                        font-size: 2rem;
                     }
                 }
             }
-            .profilePage__infoBottom {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+            // .profilePage__infoBottom {
+            //     display: flex;
+            //     flex-direction: column;
+            //     align-items: center;
+            //     // grid-template-columns: repeat(3, 1fr);
+            //     // border: 2px solid blue;
+            //     // justify-content: center;
+            //     // align-items: center;
+
                 
-                .profilePage__infoBottomStats {
+                .profilePage__infoStats {
                     width: 100%;
-                    display: flex;
-                    justify-content: space-between;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
                     margin-top: 2rem;
                     .posts, .joined, .likes {
                         font-family: $accent-font;
                         font-size: 1.5rem;
+                        display: flex;
+                        justify-self: center;
                         .title {
                             opacity: 0.5;
+                            margin-right: 0.5rem;
                         }
                         .stat {
                             opacity: 0.9;
                         }
                     }
-                }
-                .profilePage__infoBottomButton {
-                    margin-top: 2rem;
-                    .button {
-                        font-family: $accent-font;
-                        font-size: 1.2rem;
-                        letter-spacing: 0.1rem;
-                        opacity: 0.25;
-                        text-shadow: 0px 0px 5px $primary-color;
-                        cursor: pointer;
-                    }
+                // }
+            
+            }
+            .profilePage__infoButton {
+                margin-top: 2rem;
+                display: flex;
+                justify-content: center;
+                .button {
+                    font-family: $accent-font;
+                    font-size: 1.2rem;
+                    letter-spacing: 0.1rem;
+                    opacity: 0.25;
+                    text-shadow: 0px 0px 5px $primary-color;
+                    cursor: pointer;
                 }
             }
 

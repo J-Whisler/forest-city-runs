@@ -62,42 +62,41 @@ const ProfilePage = () => {
               <h5>{user.username.substring(0, 1)}</h5>
               <div className="username">
                 <h6>Username: </h6>
-                <h1>{user.username}</h1>
+                <h3>{user.username}</h3>
               </div>
             </div>
-            <div className="profilePage__infoBottom">
-              {showUserInfo && (
-                <div className="profilePage__infoBottomStats">
-                  <h6 className="posts">
-                    <span className="title">Posts:</span>{" "}
-                    <span className="stat">{listOfUserPosts.length}</span>
-                  </h6>
-                  <h6 className="likes">
-                    <span className="title">Likes Received:</span>{" "}
-                    <span className="stat">{userLikes}</span>
-                  </h6>
-                  <h6 className="joined">
-                    <span className="title">User since:</span>{" "}
-                    <span className="stat">{userJoinDate}</span>
-                  </h6>
-                </div>
-              )}
-
-              <div className="profilePage__infoBottomButton">
-                {showUserInfo ? (
-                  <>
-                    <p className="button" onClick={hideStats}>
-                      Hide User Info <i className="fas fa-chevron-up"></i>
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <p className="button" onClick={showStats}>
-                      See User Info <i className="fas fa-chevron-down"></i>
-                    </p>
-                  </>
-                )}
+            {/* <div className="profilePage__infoBottom"> */}
+            {showUserInfo && (
+              <div className="profilePage__infoStats">
+                <h6 className="posts">
+                  <span className="title">Posts:</span>{" "}
+                  <span className="stat">{listOfUserPosts.length}</span>
+                </h6>
+                <h6 className="likes">
+                  <span className="title">Likes Received (all posts):</span>{" "}
+                  <span className="stat">{userLikes}</span>
+                </h6>
+                <h6 className="joined">
+                  <span className="title">User since:</span>{" "}
+                  <span className="stat">{userJoinDate}</span>
+                </h6>
               </div>
+            )}
+            {/* </div> */}
+            <div className="profilePage__infoButton">
+              {showUserInfo ? (
+                <>
+                  <p className="button" onClick={hideStats}>
+                    Hide User Info <i className="fas fa-chevron-up"></i>
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="button" onClick={showStats}>
+                    See User Info <i className="fas fa-chevron-down"></i>
+                  </p>
+                </>
+              )}
             </div>
           </div>
         )}
