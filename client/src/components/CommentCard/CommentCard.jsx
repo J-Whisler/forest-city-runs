@@ -3,10 +3,11 @@ import "./CommentCard.scss";
 
 import { AuthContext } from "../../helpers/AuthContext";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const CommentCard = ({ comment, comments, setComments }) => {
   const { authState } = useContext(AuthContext);
-
+  let history = useHistory();
   // console.log(authState);
 
   const deleteComment = (id) => {
@@ -17,7 +18,6 @@ const CommentCard = ({ comment, comments, setComments }) => {
         },
       })
       .then((response) => {
-        console.log(response);
         setComments(
           comments.filter((comment) => {
             return comment.id !== id;

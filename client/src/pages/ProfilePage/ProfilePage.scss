@@ -1,0 +1,89 @@
+@import "../../utilites/variables.scss";
+
+.profilePage {
+    background: $primary-color;
+    min-height: 100vh;
+    padding: 5rem 10rem;
+    .profilePage__header {
+        border: 2px solid $secondary-color;
+        border-radius: 1rem;
+        color: $font-color; 
+        padding: 1rem 3rem;
+        display: flex;
+        flex-direction: column;
+        .profilePage__info {
+            .profilePage__infoTop {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                h5 {
+                    border: 2px solid $secondary-color-shadow;
+                    background: $secondary-color;
+                    color: $primary-color;
+                    border-radius: 50%;
+                    padding: 0 4rem;
+                    width: 5rem;
+                    font-family: $accent-font;
+                    font-size: 5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .username {
+                    line-height: 1.2;
+                    h6 {
+                        font-family: $main-font;
+                        font-size: 1.2rem;
+                        opacity: 0.5;
+                        letter-spacing: 0.3rem;
+                    }
+                    h1 {
+                        font-family: $accent-font;
+                        display: flex;
+                        letter-spacing: 0.15rem;
+                    }
+                }
+            }
+            .profilePage__infoBottom {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                .profilePage__infoBottomStats {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 2rem;
+                    .posts, .joined, .likes {
+                        font-family: $accent-font;
+                        font-size: 1.5rem;
+                        .title {
+                            opacity: 0.5;
+                        }
+                        .stat {
+                            opacity: 0.9;
+                        }
+                    }
+                }
+                .profilePage__infoBottomButton {
+                    margin-top: 2rem;
+                    .button {
+                        font-family: $accent-font;
+                        font-size: 1.2rem;
+                        letter-spacing: 0.1rem;
+                        opacity: 0.25;
+                        text-shadow: 0px 0px 5px $primary-color;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+        }
+        
+   
+        
+    }
+    .profilePage__userPosts {
+        color: $font-color;
+    }
+}

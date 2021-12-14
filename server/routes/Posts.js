@@ -17,11 +17,20 @@ router.get("/byId/:id", async (req, res) => {
   res.json(singlePost);
 });
 
+
+
 router.post("/", validateToken, async (req, res) => {
   const post = req.body;
   post.username = req.user.username;
+  post.UserId = req.user.id;
   await Posts.create(post);
   res.json(post);
+});
+
+router.get("/byUserId/:id", async (req, res) => {
+  const id = req.params.id;
+  const listOfUserPosts = await Posts.findAll({where: {UserId: id}, include: [Likes]})
+  res.json(listOfUserPosts);
 });
 
 router.delete("/:postId", validateToken, async (req, res) => {

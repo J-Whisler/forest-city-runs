@@ -4,7 +4,15 @@ const { Users } = require("../models");
 const bcrypt = require("bcrypt");
 const {validateToken} = require("../middlewares/AuthMiddleware")
 
-const {sign} = require("jsonwebtoken")
+const {sign} = require("jsonwebtoken");
+
+router.get("/userinfo/:id", async (req, res) => {
+    const id = req.params.id;
+
+    const userinfo = await Users.findByPk(id, {attributes: {exclude: ["password"]}});
+
+    res.json(userinfo);
+})
 
 router.post("/", async (req, res) => {
   const {username, password} = req.body;
