@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ProfilePagePostCard.scss";
+import { useHistory } from "react-router-dom";
 
 const ProfilePagePostCard = ({ userPost }) => {
   const [userPostPostDate, setUserPostPostDate] = useState(``);
@@ -14,8 +15,13 @@ const ProfilePagePostCard = ({ userPost }) => {
     setUserPostPostDate(`${getPostMonth}/${getPostDay}/${getPostYear}`);
   }, [getPostMonth, getPostDay, getPostYear]);
 
+  let history = useHistory();
+
   return (
-    <div className="profilePagePostCard">
+    <div
+      className="profilePagePostCard"
+      onClick={() => history.push(`/singlepost/${userPost.id}`)}
+    >
       <div className="profilePagePostCard__main">
         <h2 className="main__title">{userPost.title}</h2>
         <p className="main__postText">{userPost.postText}</p>

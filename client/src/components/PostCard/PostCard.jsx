@@ -106,24 +106,39 @@ const PostCard = ({
         <div className="postCard__mainPostDivider"></div>
       </div>
       <div className="postCard__footer">
-        <div className="postCard__footerLikes">
-          <i
-            className={
-              likedPosts.includes(post.id)
-                ? "fas fa-thumbs-up unlikeBtn"
-                : "fas fa-thumbs-up likeBtn"
-            }
-            onClick={() => likeAPost(post.id)}
-          ></i>
-          <span>{post.Likes.length}</span>
+        <div className="postCard__footerStats">
+          <div className="postCard__footerLikes">
+            <i
+              className={
+                likedPosts.includes(post.id)
+                  ? "fas fa-thumbs-up unlikeBtn"
+                  : "fas fa-thumbs-up likeBtn"
+              }
+              onClick={() => likeAPost(post.id)}
+            ></i>
+            <span>{post.Likes.length}</span>
+          </div>
+          <div
+            className="postCard__footerComments"
+            onClick={() => history.push(`/singlepost/${post.id}`)}
+          >
+            <i className="fas fa-comment"></i>
+            <span>Click here to see or add comments!</span>
+          </div>
         </div>
-        <div
-          className="postCard__footerComments"
-          onClick={() => history.push(`/singlepost/${post.id}`)}
-        >
-          <i className="fas fa-comment"></i>
-          <span>Click here to see or add comments!</span>
-        </div>
+
+        {authState.username === post.username && (
+          <div
+            onClick={() => deletePost(post.id)}
+            className="postCard__footerDeleteButton"
+          >
+            <i
+              onClick={() => deletePost(post.id)}
+              className="i fas fa-trash-alt deletePostBtn"
+            ></i>
+            <span>Delete Post</span>
+          </div>
+        )}
       </div>
     </div>
     // <div className="postCard">

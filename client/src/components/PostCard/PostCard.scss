@@ -6,11 +6,15 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1rem 2rem;
     margin-bottom: 1rem;
     background: $primary-color;
     background: linear-gradient(124deg, rgb(20, 20, 20) 0%, rgb(30, 30, 30) 100%);
     transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 15px $secondary-color;
+    }
     .postCard__header {
         margin-bottom: 1rem;
         .postCard__headerLink {
@@ -82,51 +86,75 @@
     .postCard__footer {
         display: flex;
         align-items: center;
-        .postCard__footerLikes {
-            font-family: $accent-font;
-            color: $font-color;
+        justify-content: space-between;
+        padding: 0 3rem 0 1rem;
+        .postCard__footerStats {
             display: flex;
-            align-items: center;
-            margin-right: 1.5rem;
-            i {
-                font-size: 1.7rem;
-                margin-right: 0.5rem;
-                cursor: pointer;
-                transition: all 0.1s ease-in-out;
-                &.unlikeBtn {
-                    color: $secondary-color;
-                    // text-shadow: 0 0 8px $secondary-color;
+            .postCard__footerLikes {
+                font-family: $accent-font;
+                color: $font-color;
+                display: flex;
+                align-items: center;
+                margin-right: 1.5rem;
+                i {
+                    font-size: 1.7rem;
+                    margin-right: 0.5rem;
+                    cursor: pointer;
+                    transition: all 0.1s ease-in-out;
+                    &.unlikeBtn {
+                        color: $secondary-color;
+                        // text-shadow: 0 0 8px $secondary-color;
+                    }
+                    &.likeBtn {
+                        color: $font-color;
+                        text-shadow: none;
+                    }
+                    &:hover {
+                        transform: scale(1.03);
+                    }
                 }
-                &.likeBtn {
-                    color: $font-color;
-                    text-shadow: none;
+                span {
+                    font-size: 1.5rem;
+                    font-family: $accent-font;
+                }
+        
+            }
+            .postCard__footerComments {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+                i {
+                    font-size: 1.7rem;
+                    margin-right: 0.5rem;
+                }
+                span {
+                    font-size: 1.5rem;
+                    font-family: $accent-font;
                 }
                 &:hover {
-                    transform: scale(1.03);
-                }
+                    transform: scale(1.01);
+                }            
             }
-            span {
-                font-size: 1.5rem;
-                font-family: $accent-font;
-            }
-    
         }
-        .postCard__footerComments {
+       
+   
+        .postCard__footerDeleteButton {
             display: flex;
             align-items: center;
             cursor: pointer;
-            transition: all 0.2s ease-in-out;
+            transition: all 0.3s ease-in-out;
             i {
-                font-size: 1.7rem;
+                font-size: 1.5rem;
                 margin-right: 0.5rem;
             }
             span {
-                font-size: 1.5rem;
                 font-family: $accent-font;
+                font-size: 1.2rem;
             }
             &:hover {
-                transform: scale(1.01);
-            }            
+                color: $error-message-color;
+            }
         }
               
     }

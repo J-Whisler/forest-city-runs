@@ -7,6 +7,12 @@
     margin-bottom: 1rem;
     background: $primary-color;
     background: linear-gradient(124deg, rgb(20, 20, 20) 0%, rgb(30, 30, 30) 100%);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 15px $secondary-color;
+    }
     .profilePagePostCard__main{
         color: $font-color;
         .main__title {
