@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import "./PostCard.scss";
 import axios from "axios";
 import { AuthContext } from "../../helpers/AuthContext";
@@ -88,59 +88,100 @@ const PostCard = ({
 
   return (
     <div className="postCard">
+      <div className="postCard__header">
+        <Link className="postCard__headerLink" to={`/profile/${post.UserId}`}>
+          <span>{post.username.substring(0, 1)}</span>
+          <h6>@{post.username}</h6>
+        </Link>
+      </div>
       <div
-        className="postCard__body"
+        className="postCard__main"
         onClick={() => {
           history.push(`/singlepost/${post.id}`);
         }}
       >
-        <div className="postCard__user">
-          <p>{post.username.substring(0, 1)}</p>
-          <h6>@{post.username}</h6>
-        </div>
-        <div className="postCard__title">
-          <h3>{post.title}</h3>
-        </div>
-        <div className="postCard__text">
-          <p>{post.postText}</p>
-        </div>
+        <h3 className="postCard__mainPostTitle">{post.title}</h3>
+        <p className="postCard__mainPostText">{post.postText}</p>
+        <span className="postCard__mainPostDate">{postDate}</span>
+        <div className="postCard__mainPostDivider"></div>
       </div>
       <div className="postCard__footer">
-        <p className="postCard__textPostDate">{postDate}</p>
-        <div className="postCard__footerDivider"></div>
-        <div className="postCard__footerStats">
-          <div className="postCard__footerStatsLikes">
-            <i
-              className={
-                likedPosts.includes(post.id)
-                  ? "fas fa-thumbs-up unlikeBtn"
-                  : "fas fa-thumbs-up likeBtn"
-              }
-              onClick={() => likeAPost(post.id)}
-            />
-            <span>{post.Likes.length}</span>
-          </div>
-          <div
-            onClick={() => {
-              history.push(`/singlepost/${post.id}`);
-            }}
-            className="postCard__footerStatsComments"
-          >
-            <i className="fas fa-comment">
-              <span>Click to see or add comments</span>
-            </i>
-          </div>
-          {authState.username === post.username && (
-            <i
-              onClick={() => deletePost(post.id)}
-              className="i fas fa-trash-alt deletePostBtn"
-            >
-              <span>Delete Post</span>
-            </i>
-          )}
+        <div className="postCard__footerLikes">
+          <i
+            className={
+              likedPosts.includes(post.id)
+                ? "fas fa-thumbs-up unlikeBtn"
+                : "fas fa-thumbs-up likeBtn"
+            }
+            onClick={() => likeAPost(post.id)}
+          ></i>
+          <span>{post.Likes.length}</span>
+        </div>
+        <div
+          className="postCard__footerComments"
+          onClick={() => history.push(`/singlepost/${post.id}`)}
+        >
+          <i className="fas fa-comment"></i>
+          <span>Click here to see or add comments!</span>
         </div>
       </div>
     </div>
+    // <div className="postCard">
+    //   <div
+    //     className="postCard__body"
+    //     onClick={() => {
+    //       history.push(`/singlepost/${post.id}`);
+    //     }}
+    //   >
+    //     <div className="postCard__user">
+    //       <p>{post.username.substring(0, 1)}</p>
+    //       <Link to={`/profile/${post.UserId}`}>
+    //         <h6>@{post.username}</h6>
+    //       </Link>
+    //     </div>
+    //     <div className="postCard__title">
+    //       <h3>{post.title}</h3>
+    //     </div>
+    //     <div className="postCard__text">
+    //       <p>{post.postText}</p>
+    //     </div>
+    //   </div>
+    //   <div className="postCard__footer">
+    //     <p className="postCard__textPostDate">{postDate}</p>
+    //     <div className="postCard__footerDivider"></div>
+    //     <div className="postCard__footerStats">
+    //       <div className="postCard__footerStatsLikes">
+    //         <i
+    //           className={
+    //             likedPosts.includes(post.id)
+    //               ? "fas fa-thumbs-up unlikeBtn"
+    //               : "fas fa-thumbs-up likeBtn"
+    //           }
+    //           onClick={() => likeAPost(post.id)}
+    //         />
+    //         <span>{post.Likes.length}</span>
+    //       </div>
+    //       <div
+    //         onClick={() => {
+    //           history.push(`/singlepost/${post.id}`);
+    //         }}
+    //         className="postCard__footerStatsComments"
+    //       >
+    //         <i className="fas fa-comment">
+    //           <span>Click to see or add comments</span>
+    //         </i>
+    //       </div>
+    //       {authState.username === post.username && (
+    //         <i
+    //           onClick={() => deletePost(post.id)}
+    //           className="i fas fa-trash-alt deletePostBtn"
+    //         >
+    //           <span>Delete Post</span>
+    //         </i>
+    //       )}
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 

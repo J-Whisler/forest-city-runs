@@ -11,132 +11,124 @@
     background: $primary-color;
     background: linear-gradient(124deg, rgb(20, 20, 20) 0%, rgb(30, 30, 30) 100%);
     transition: all 0.3s ease-in-out;
-    .postCard__body {
-        cursor: pointer;
-        .postCard__user {
+    .postCard__header {
+        margin-bottom: 1rem;
+        .postCard__headerLink {
             display: flex;
             align-items: center;
-            p {
-               border: 2px solid $secondary-color;
-               border-radius: 50%;
-               padding: 0.1rem 1rem;
-               font-family: $accent-font;
-               font-size: 2rem;
-               background-color: rgb(9, 29, 4);
-               color: $secondary-color; 
-               box-shadow: 0px 0px 150px $secondary-color;
+            text-decoration: none;
+            
+            &:hover {
+                span {
+                    background: $primary-color;
+                    color: $secondary-color;
+                    
+                }
+                h6 {
+                    font-size: 2.55rem;
+                    opacity: 0.6;
+                }
+            }
+            span {
+                border: 2px solid $secondary-color;
+                border-radius: 50%;
+                color: $primary-color;
+                background: $secondary-color;
+                font-family: $accent-font;
+                font-size: 3rem;
+                padding: 1rem 2.8rem;
+                transition: all 0.3s ease-in-out;
             }
             h6 {
-                color: $font-color;
-                font-family: $main-font;
-                font-size: 1.2rem;
-                margin-left: 0.5rem;
-                opacity: 0.3;
-                text-shadow: 0px 0px 10px $primary-color;
-            }
-        }
-        .postCard__title {
-            color: $font-color;
-            margin-top: 0.5rem;
-            h3 {
+                font-size: 2.5rem;
                 font-family: $accent-font;
-                letter-spacing: 0.05rem;
-                font-size: 1.8rem;
-                text-decoration: underline;
+                color: $font-color;
+                opacity: 0.5;
+                margin-left: 1rem;
+                transition: all 0.3s ease-in-out;
             }
         }
-    
-        .postCard__text {
-            color: $font-color;
-            p {
-               margin-top: 0.3rem;
-               font-family: $main-font;
-               line-height: 1.5; 
-               font-size: 1.1rem;
-            }
     }
-    
+    .postCard__main {
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            transform: scale(0.99);
+        }
+        
+        .postCard__mainPostTitle {
+            font-family: $accent-font;
+            font-size: 2rem;
+            text-decoration: underline;
+            letter-spacing: 0.1rem;
+        }
+        .postCard__mainPostText {
+            font-family: $main-font;
+            font-size: 1.5rem;
+        }
+        .postCard__mainPostDate {
+            font-family: $accent-font;
+            font-size: 1.2rem;
+            opacity: 0.5;
+            letter-spacing: 0.1rem;
+        }
+        .postCard__mainPostDivider {
+            border: 2px solid $secondary-color;
+            border-radius: 1rem;
+            opacity: 0.4;
+            margin: 1rem 0;
+        }
     }
     .postCard__footer {
-        .postCard__textPostDate {
-            opacity: 0.3;
+        display: flex;
+        align-items: center;
+        .postCard__footerLikes {
             font-family: $accent-font;
-            letter-spacing: 0.1rem;
-            margin-bottom: 1rem;
-            color: $font-color;
-        }
-        .postCard__footerStats {
             color: $font-color;
             display: flex;
             align-items: center;
-            font-size: 1.5rem;
-            font-family: $accent-font;
-            width: 100%;
-            padding-right: 1rem;
-            .postCard__footerStatsLikes {
-                margin-right: 1rem;
-                i {
-                    cursor: pointer;
-                    margin: 0 0.5rem;
-                    opacity: 0.8;
-                    &.unlikeBtn {
-                        color: $secondary-color;
-                        opacity: 1;
-                        text-shadow: 0px 0px 12px $secondary-color;
-                    }
-                    &.likeBtn {
-                        color: $font-color;
-                        opacity: 0.8;
-                    }
-                }
-                // span {
-                // }
-            }
-            .postCard__footerStatsComments {
-                display: flex;
-                align-items: center;
-                i {
-                    cursor: pointer;
-                    margin: 0 0.5rem;
-                    opacity: 0.8;
-                    
-                    span {
-                        font-family: $accent-font;
-                        font-size: 1.2rem;
-                        margin-left: 0.2rem;
-                    }
-                }
-                
-            }
-            .deletePostBtn {
-                display: flex;
-                margin: 0 0 0 auto;
-                color: $error-message-color;
+            margin-right: 1.5rem;
+            i {
+                font-size: 1.7rem;
+                margin-right: 0.5rem;
                 cursor: pointer;
-                transition: all 0.3s ease-in-out;
-                span {
-                    margin-left: 0.5rem;
-                    font-family: $accent-font;
+                transition: all 0.1s ease-in-out;
+                &.unlikeBtn {
+                    color: $secondary-color;
+                    // text-shadow: 0 0 8px $secondary-color;
+                }
+                &.likeBtn {
+                    color: $font-color;
+                    text-shadow: none;
                 }
                 &:hover {
-                    text-shadow: 0 0 5px $primary-color;
-                    transform: scale(1.02);
-                    letter-spacing: 0.03rem;
+                    transform: scale(1.03);
                 }
             }
-            
+            span {
+                font-size: 1.5rem;
+                font-family: $accent-font;
+            }
+    
         }
-        .postCard__footerDivider {
-            border: 2px solid $secondary-color;
-            border-radius: 1rem;
-            // width: 10%;
-            opacity: 0.3;
-            margin-bottom: 0.5rem;
+        .postCard__footerComments {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            i {
+                font-size: 1.7rem;
+                margin-right: 0.5rem;
+            }
+            span {
+                font-size: 1.5rem;
+                font-family: $accent-font;
+            }
+            &:hover {
+                transform: scale(1.01);
+            }            
         }
+              
     }
-    &:hover {
-        box-shadow: 0px 0px 10px $secondary-color;
-        transform: scale(1.01);
-    }
-
+   
 }

@@ -1,0 +1,39 @@
+@import "../../utilites/variables.scss";
+
+.profilePagePostCard {
+    border: 2px solid $secondary-color;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: $primary-color;
+    background: linear-gradient(124deg, rgb(20, 20, 20) 0%, rgb(30, 30, 30) 100%);
+    .profilePagePostCard__main{
+        color: $font-color;
+        .main__title {
+            font-family: $accent-font;
+            font-size: 2rem;
+            text-decoration: underline;
+            text-shadow: 0px 0px 10px $primary-color;
+        }
+        .main__postText {
+            font-family: $main-font;
+            font-size: 1.3rem;
+        }
+    }
+
+.profilePagePostCard__footer {
+    display: flex;
+    flex-direction: column;
+    font-family: $accent-font;
+    .footer__date, .footer__likes {
+        opacity: 0.5;
+        font-size: 1.2rem;
+    }
+    .footer__likes {
+        color: $secondary-color;
+        letter-spacing: 0.1rem;
+        opacity: 1;
+        text-shadow: none;
+    }
+}
+}

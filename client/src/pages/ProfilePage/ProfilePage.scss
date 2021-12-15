@@ -4,6 +4,32 @@
     background: $primary-color;
     min-height: 100vh;
     padding: 5rem 10rem;
+    .profilePage__backButton {
+        border: 2px solid $secondary-color;
+        border-radius: 1rem;
+        text-decoration: none;
+        color: $font-color;
+        font-size: 1.6rem;
+        padding: 0.5rem 1.5rem;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease-in-out;
+        i {
+            margin-right: 1rem;
+          }
+          span {
+            font-family: $accent-font;
+            letter-spacing: 0.3rem;
+          }
+          &:hover {
+            background: $secondary-color;
+            i {
+                color: $primary-color;
+            }
+            span {
+                color: $primary-color;
+            }
+        }
+    }
     .profilePage__header {
         border: 2px solid $secondary-color;
         border-radius: 1rem;
@@ -11,6 +37,7 @@
         padding: 2rem 3rem 1rem;
         display: flex;
         flex-direction: column;
+        margin: 2rem 0 2rem;
         .profilePage__info {
             .profilePage__infoTop {
                 display: grid;
@@ -103,5 +130,7 @@
     }
     .profilePage__userPosts {
         color: $font-color;
+        display: flex;
+        flex-direction: column-reverse;
     }
 }

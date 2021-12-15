@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./ProfilePage.scss";
-
+import ProfilePagePostCard from "../../components/ProfilePagePostCard/ProfilePagePostCard";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const ProfilePage = () => {
   const [user, setUser] = useState("");
@@ -53,6 +54,10 @@ const ProfilePage = () => {
 
   return (
     <div className="profilePage">
+      <Link className="profilePage__backButton" to="/posts">
+        <i className="fas fa-arrow-left"></i>
+        <span>Back</span>
+      </Link>
       <div className="profilePage__header">
         {user.username === undefined ? (
           ""
@@ -102,10 +107,8 @@ const ProfilePage = () => {
         )}
       </div>
       <div className="profilePage__userPosts">
-        {listOfUserPosts.map((userPost) => (
-          <>
-            <h3>{userPost.title}</h3>
-          </>
+        {listOfUserPosts.map((userPost, key) => (
+          <ProfilePagePostCard userPost={userPost} key={key} />
         ))}
       </div>
     </div>
